@@ -1,0 +1,21 @@
+Circular Buffer Requirements:
+
+- Buffer holds a fixed number of elements (int)
+- Buffer is initialized with zero elements
+- Every operation done on the buffer will return a status variable
+- Elements are inserted/removed in a first in/first out order
+- If the buffer is full and another insertion takes place, the oldest element is overwritten
+- No elements can be removed from an empty buffer
+- Buffer can be queried for the number of elements contained
+
+Test list:
+
+1) Buffer is initialized succesfully 
+2) Number of elements of newly initialized buffer is 0
+3) Reading an element from an empty buffer will result in an error
+4) After inserting an element, the element count will be incremented
+5) Reading/removing an element will yield the same value as previously inserted
+6) After reading/removing a value, the element count will be decremented
+7) The maximum defined number of elements can be inserted consecutively and then read without losing data
+8) If more elements are inserted in the buffer than the maximal number, ex 1 more, the first element entered will be lost and the result of the first reading will result in the retrieval of the second element
+

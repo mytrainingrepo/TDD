@@ -1,0 +1,23 @@
+LED Driver Requirements:
+
+1. The driver controls 16 two state LEDs
+2. It can turn on or off individual leds without affecting the others
+3. It can turn all leds on or off with a single function call
+4. The user can query the state of any led
+5. At power-up the hardware default is for all leds to be latched on. They must be turned off by software.
+6. The leds are memory-mapped to a 16-bit word
+7. Value 1 in a bitfield turns the led on, value 0 turns it off
+8. The least significant bit corresponds to led 1, the most significant corresponding to led 16
+
+
+Test list:
+
+1) All leds are off after the driver is initialized
+2) A single led can be turned on 
+3) A single led can be turned off
+4) Multiple leds can be turned on/off
+5) All leds can be turned on/off
+6) Check boundary values
+7) Check out of bounds values
+8) Query LED state
+
