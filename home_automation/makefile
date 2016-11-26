@@ -77,6 +77,7 @@ default:
 	lcov -t 'Coverage_Report' -o ./obj/cov/coverage_result.info -c -d ./obj
 	genhtml -o ./obj/cov/coverage_report ./obj/cov/coverage_result.info -f -s -legend --function-coverage --branch-coverage
 	valgrind --tool=callgrind ./obj/all_tests.out
+	mv callgrind* ./obj
 	#kcachegrind ./obj &
 
 
