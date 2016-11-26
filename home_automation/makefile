@@ -57,11 +57,13 @@ SRC_FILES1=\
   $(UNITY_ROOT)/src/unity.c \
   $(UNITY_ROOT)/extras/fixture/src/unity_fixture.c \
   $(BOOK_ROOT)/mocks/RuntimeErrorStub.c \
-  src/LedDriver.c \
-  test/LedDriverTest.c \
-  test/test_runners/LedDriverTest_Runner.c \
+  src/LightScheduler.c \
+  mocks/LightControllerSpy.c \
+  mocks/FakeTimeService.c \
+  test/LightSchedulerTest.c \
+  test/test_runners/LightSchedulerTest_Runner.c \
   test/test_runners/all_tests.c
-INC_DIRS=-Isrc -I$(UNITY_ROOT)/src -I$(UNITY_ROOT)/extras/fixture/src \
+INC_DIRS=-Isrc -Imocks -I$(UNITY_ROOT)/src -I$(UNITY_ROOT)/extras/fixture/src \
 	 -I$(BOOK_ROOT)/mocks -I$(BOOK_ROOT)/include/util
 SYMBOLS=
 
@@ -75,7 +77,7 @@ default:
 	lcov -t 'Coverage_Report' -o ./obj/cov/coverage_result.info -c -d ./obj
 	genhtml -o ./obj/cov/coverage_report ./obj/cov/coverage_result.info -f -s -legend --function-coverage --branch-coverage
 	valgrind --tool=callgrind ./obj/all_tests.out
-	kcachegrind ./obj &
+	#kcachegrind ./obj &
 
 
 clean:
